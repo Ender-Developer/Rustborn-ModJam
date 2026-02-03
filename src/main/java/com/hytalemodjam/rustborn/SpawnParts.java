@@ -10,6 +10,14 @@ import com.hypixel.hytale.server.core.universe.world.worldgen.WorldGenLoadExcept
 import com.hypixel.hytale.server.core.universe.world.worldgen.WorldGenTimingsCollector;
 import com.hypixel.hytale.server.core.universe.world.worldgen.provider.IWorldGenProvider;
 import com.hypixel.hytale.server.worldgen.HytaleWorldGenProvider;
+import java.io.File;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.OpenOption;
+import java.nio.file.Path;
+import java.nio.file.StandardOpenOption;
+import java.nio.file.attribute.FileAttribute;
 import java.util.Random;
 import java.util.concurrent.CompletableFuture;
 import java.util.function.LongPredicate;
@@ -25,6 +33,8 @@ public class SpawnParts implements IWorldGenProvider, IWorldGen{
     private Random random;
 
     private boolean debugEnabled = false;
+
+    private File configFile;
 
     private int decoBoneSkullsId = -1;
 
@@ -50,13 +60,20 @@ public class SpawnParts implements IWorldGenProvider, IWorldGen{
 
     private int armRareId = -1;
 
+    private int totalReplacements = 0;
+
     public SpawnParts() {
+        loadConfig();
     }
 
     public IWorldGen getGenerator() throws WorldGenLoadException {
         if (this.vanillaGenerator == null) {
+            if (this.debugEnabled)
+                log("Initializing vanilla generator wrapper");
             HytaleWorldGenProvider hytaleProvider = new HytaleWorldGenProvider();
             this.vanillaGenerator = hytaleProvider.getGenerator();
+            if (this.debugEnabled)
+                log("Vanilla generator initialized successfully");
         }
         return this;
     }
@@ -81,6 +98,8 @@ public class SpawnParts implements IWorldGenProvider, IWorldGen{
 
     private void initializeBlockIds() {
         if (this.decoBoneSkullsId == -1) {
+            if (this.debugEnabled)
+                log("Scanning for block IDs...");
             int count = BlockType.getAssetMap().getAssetCount();
             int foundCount = 0;
             for (int i = 0; i < count; i++) {
@@ -143,6 +162,7 @@ public class SpawnParts implements IWorldGenProvider, IWorldGen{
                                     int rotation = blockChunk.getRotationIndex(x, y, z);
                                     blockChunk.setBlock(x, y, z, blockToSpawn, rotation, 0);
                                     chunkReplacements++;
+                                    this.totalReplacements++;
                                 }
                             }
                         }else if(currentBlockId == this.decoBoneSkullsId){
@@ -156,6 +176,7 @@ public class SpawnParts implements IWorldGenProvider, IWorldGen{
                                     int rotation = blockChunk.getRotationIndex(x, y, z);
                                     blockChunk.setBlock(x, y, z, blockToSpawn, rotation, 0);
                                     chunkReplacements++;
+                                    this.totalReplacements++;
                                 }
                             }
 
@@ -164,6 +185,8 @@ public class SpawnParts implements IWorldGenProvider, IWorldGen{
                 }
             }
         }
+        if (this.debugEnabled && chunkReplacements > 0)
+            log("Chunk [" + chunkX + ", " + chunkZ + "] replaced " + chunkReplacements + " parts (Total: " + this.totalReplacements + ")");
     }
 
     @Deprecated
@@ -173,8 +196,72 @@ public class SpawnParts implements IWorldGenProvider, IWorldGen{
 
     public void shutdown() {
         if (this.vanillaGenerator != null) {
+            if (this.debugEnabled)
+                log("Shutting down... Total replacements: " + this.totalReplacements);
             this.vanillaGenerator.shutdown();
         }
+    }
+
+    private void loadConfig() {
+        Rustborn plugin = Rustborn.get();
+        if (plugin == null)
+            return;
+        Path dataDirectory = plugin.getDataDirectory();
+        if (dataDirectory != null)
+            try {
+                Files.createDirectories(dataDirectory, (FileAttribute<?>[])new FileAttribute[0]);
+                this.configFile = dataDirectory.resolve("config.json").toFile();
+                if (!this.configFile.exists()) {
+                    saveConfig();
+                } else {
+                    String content = Files.readString(this.configFile.toPath(), StandardCharsets.UTF_8);
+                    parseJson(content);
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+    }
+
+    private void parseJson(String json) {
+        try {
+            json = json.trim();
+            if (json.startsWith("{") && json.endsWith("}"))
+                json = json.substring(1, json.length() - 1);
+            String[] pairs = json.split(",");
+            for (String pair : pairs) {
+                String[] keyValue = pair.split(":");
+                if (keyValue.length == 2) {
+                    String key = keyValue[0].trim().replace("\"", "");
+                    String value = keyValue[1].trim().replace("\"", "");
+                    if ("debug".equals(key)) {
+                        this.debugEnabled = Boolean.parseBoolean(value);
+                    }
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void saveConfig() {
+        if (this.configFile == null)
+            return;
+        try {
+            Path parent = this.configFile.toPath().getParent();
+            if (parent != null)
+                Files.createDirectories(parent, (FileAttribute<?>[])new FileAttribute[0]);
+            StringBuilder json = new StringBuilder();
+            json.append("{\n");
+            json.append("  \"debug\": ").append(this.debugEnabled).append(",\n");
+            json.append("}");
+            Files.writeString(this.configFile.toPath(), json.toString(), StandardCharsets.UTF_8, new OpenOption[] { StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING });
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void log(String message) {
+        System.out.println("[Rustborn-WORLDGEN] " + message);
     }
 
 }
