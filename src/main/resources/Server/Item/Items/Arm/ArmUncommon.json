@@ -1,0 +1,51 @@
+{
+  "TranslationProperties": {
+    "Name": "items.arms_name"
+  },
+  "Model": "Items/Arms/Arm.blockymodel",
+  "Texture": "Items/Arms/Arm.png",
+  "Icon": "Icons/ItemsGenerated/ArmUncommon.png",
+  "IconProperties": {
+    "Scale": 0.3,
+    "Rotation": [
+      8,
+      64,
+      54
+    ],
+    "Translation": [
+      6,
+      -3
+    ]
+  },
+  "BlockType": {
+    "CustomModel": "Items/Arms/Arm.blockymodel",
+    "DrawType": "Model",
+    "CustomModelTexture": [
+      {
+        "Texture": "Items/Arms/Arm.png"
+      }
+    ],
+    "Gathering": {
+      "Breaking": {
+        "GatherType": "SoftBlocks",
+        "ItemId": "ArmUncommon"
+      }
+    },
+    "Material": "Solid",
+    "Opacity": "Semitransparent",
+    "ParticleColor": "#f3f3ee",
+    "BlockSoundSetId": "Stone",
+    "BlockBreakingDecalId": "Breaking_Decals_Rock",
+    "CubeShadingMode": "Standard",
+    "RequiresAlphaBlending": false,
+    "BlockParticleSetId": "Stone",
+    "RandomRotation": "YawStep1",
+    "HitboxType": "ArmBox",
+    "CustomModelScale": 0.4
+  },
+  "PlayerAnimationsId": "Block",
+  "Categories": [
+    "Rustborn.RustBorn"
+  ],
+  "Quality": "Uncommon"
+}

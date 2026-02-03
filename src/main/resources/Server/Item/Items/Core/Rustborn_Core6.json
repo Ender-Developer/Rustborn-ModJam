@@ -1,0 +1,68 @@
+{
+  "Texture": "Items/RobotCore/robotcore.png",
+  "Model": "Items/RobotCore/robotcore.blockymodel",
+  "PlayerAnimationsId": "Item",
+  "Icon": "Icons/ItemsGenerated/Rustborn_Core.png",
+  "IconProperties": {
+    "Scale": 0.8,
+    "Rotation": [
+      0,
+      167,
+      0
+    ],
+    "Translation": [
+      1,
+      -14
+    ]
+  },
+  "TranslationProperties": {
+    "Name": "items.robot_core_name",
+    "Description": "items.robot_core_description_variant_6"
+  },
+  "Interactions": {
+    "Primary": {
+      "Interactions": [
+        {
+          "Type": "SpawnEntity",
+          "EntityId": "Risen_Robot",
+          "Next": {
+            "Type": "ModifyInventory",
+            "AdjustHeldItemQuantity": -1
+          },
+          "SpawnOffset": {
+            "Y": 0.5
+          }
+        }
+      ]
+    }
+  },
+  "Quality": "Robotics",
+  "Recipe": {
+    "Input": [
+      {
+        "ItemId": "HeadCommon",
+        "Quantity": 1
+      },
+      {
+        "ItemId": "BodyCommon",
+        "Quantity": 1
+      },
+      {
+        "ItemId": "ArmUncommon"
+      },
+      {
+        "ItemId": "LegRare"
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Id": "Machine_Bench",
+        "Categories": [
+          "Assemble"
+        ],
+        "RequiredTierLevel": 1
+      }
+    ],
+    "TimeSeconds": 0
+  }
+}

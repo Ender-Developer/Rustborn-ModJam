@@ -1,0 +1,33 @@
+{
+    "Group": "Rustborn",
+    "Name": "Rustborn",
+    "Version": "1.0.0",
+    "Description": "A Hytale mod made for the Hytale ModJam 2026.",
+    "Authors": [
+        {
+            "Name": "Nykoo",
+            "Github": "https://github.com/Nxkoo"
+        },
+        {
+            "Name": "MrJoao",
+            "Github": "https://github.com/JoaoAlberis"
+        },
+        {
+            "Name": "Dynasty"
+        },
+        {
+            "Name": "Kelila"
+        }
+    ],
+    "Website": "https://discord.gg/bwz7wkGCxC",
+    "ServerVersion": "*",
+    "Dependencies": {
+        "Hytale:EntityModule": "*"
+    },
+    "OptionalDependencies": {
+        
+    },
+    "DisabledByDefault": false,
+    "Main": "com.hytalemodjam.rustborn.Rustborn",
+    "IncludesAssetPack": true
+}

@@ -1,0 +1,17 @@
+{
+  "Interactions": [
+    {
+      "Type": "Chaining",
+      "ChainId": "Slashes",
+      "ChainingAllowance": 15,
+      "Next": [
+        "Risen_Robot_Swing_Right"
+      ]
+    }
+  ],
+  "Tags": {
+    "Attack": [
+      "Melee"
+    ]
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "TranslationProperties": {
+    "Name": "items.Robot_Repair.name",
+    "Description": "items.Robot_Repair.description"
+  },
+  "Quality": "Robotic_Repair",
+  "PlayerAnimationsId": "Item",
+  "Model": "Items/RobotCore/robot_repair.blockymodel",
+  "Texture": "Items/RobotCore/robot_repair.png",
+  "Icon": "Icons/ItemsGenerated/Rustborn_Repair.png",
+  "IconProperties": {
+    "Scale": 0.58823,
+    "Rotation": [
+      0,
+      63,
+      0
+    ],
+    "Translation": [
+      0,
+      -13.5
+    ]
+  },
+  "Recipe": {
+    "Input": [
+      {
+        "ItemId": "BodyCommon",
+        "Quantity": 1
+      },
+      {
+        "ItemId": "ArmCommon"
+      },
+      {
+        "ItemId": "Ingredient_Life_Essence",
+        "Quantity": 10
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Id": "Machine_Bench",
+        "Categories": [
+          "Assemble"
+        ],
+        "RequiredTierLevel": 1
+      }
+    ],
+    "TimeSeconds": 0
+  },
+  "Categories": [
+    "Rustborn.RustBorn"
+  ]
+}

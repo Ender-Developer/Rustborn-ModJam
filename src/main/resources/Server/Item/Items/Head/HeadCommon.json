@@ -1,0 +1,51 @@
+{
+  "TranslationProperties": {
+    "Name": "items.head_name"
+  },
+  "Model": "Items/Head/Head.blockymodel",
+  "Texture": "Items/Head/Head.png",
+  "Icon": "Icons/ItemsGenerated/HeadCommon.png",
+  "IconProperties": {
+    "Scale": 0.4,
+    "Rotation": [
+      22.5,
+      45,
+      22.5
+    ],
+    "Translation": [
+      0,
+      -13.5
+    ]
+  },
+  "BlockType": {
+    "CustomModel": "Items/Head/Head.blockymodel",
+    "DrawType": "Model",
+    "CustomModelTexture": [
+      {
+        "Texture": "Items/Head/Head.png"
+      }
+    ],
+    "Gathering": {
+      "Breaking": {
+        "GatherType": "SoftBlocks",
+        "ItemId": "HeadCommon"
+      }
+    },
+    "Material": "Solid",
+    "Opacity": "Semitransparent",
+    "ParticleColor": "#f3f3ee",
+    "BlockSoundSetId": "Stone",
+    "BlockBreakingDecalId": "Breaking_Decals_Rock",
+    "CubeShadingMode": "Standard",
+    "RequiresAlphaBlending": false,
+    "BlockParticleSetId": "Stone",
+    "RandomRotation": "YawStep1",
+    "CustomModelScale": 0.5,
+    "HitboxType": "HeadBox"
+  },
+  "PlayerAnimationsId": "Block",
+  "Categories": [
+    "Rustborn.RustBorn"
+  ],
+  "Quality": "Common"
+}

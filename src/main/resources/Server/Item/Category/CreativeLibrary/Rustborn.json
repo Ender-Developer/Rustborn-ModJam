@@ -1,0 +1,11 @@
+{
+  "Icon": "Icons/ItemCategories/RustBorn.png",
+  "Order": 4,
+  "Children": [
+    {
+      "Id": "RustBorn",
+      "Name": "server.ui.itemcategory.rustborn",
+      "Icon": "Icons/ItemCategories/Items-Tools.png"
+    }
+  ]
+}

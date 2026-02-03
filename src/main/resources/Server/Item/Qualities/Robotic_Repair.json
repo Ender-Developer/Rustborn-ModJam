@@ -1,0 +1,15 @@
+{
+  "QualityValue": 3,
+  "ItemTooltipTexture": "UI/ItemQualities/Tooltips/ItemTooltipRepair.png",
+  "ItemTooltipArrowTexture": "UI/ItemQualities/Tooltips/ItemTooltipRepairArrow.png",
+  "SlotTexture": "UI/ItemQualities/Slots/SlotRepair.png",
+  "BlockSlotTexture": "UI/ItemQualities/Slots/SlotRepair.png",
+  "SpecialSlotTexture": "UI/ItemQualities/Slots/SlotRepair.png",
+  "TextColor": "#42439A",
+  "LocalizationKey": "server.general.qualities.Machine",
+  "VisibleQualityLabel": true,
+  "RenderSpecialSlot": true,
+  "ItemEntityConfig": {
+    "ParticleSystemId": "Drop_Epic"
+  }
+}

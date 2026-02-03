@@ -1,0 +1,51 @@
+{
+  "TranslationProperties": {
+    "Name": "items.legs_name"
+  },
+  "Model": "Items/Legs/Leg.blockymodel",
+  "Texture": "Items/Legs/Leg.png",
+  "Icon": "Icons/ItemsGenerated/LegCommon.png",
+  "IconProperties": {
+    "Scale": 0.3,
+    "Rotation": [
+      22.5,
+      45,
+      22.5
+    ],
+    "Translation": [
+      0,
+      -13.5
+    ]
+  },
+  "BlockType": {
+    "CustomModel": "Items/Legs/Leg.blockymodel",
+    "DrawType": "Model",
+    "CustomModelTexture": [
+      {
+        "Texture": "Items/Legs/Leg.png"
+      }
+    ],
+    "Gathering": {
+      "Breaking": {
+        "GatherType": "SoftBlocks",
+        "ItemId": "LegCommon"
+      }
+    },
+    "Material": "Solid",
+    "Opacity": "Semitransparent",
+    "ParticleColor": "#f3f3ee",
+    "BlockSoundSetId": "Stone",
+    "BlockBreakingDecalId": "Breaking_Decals_Rock",
+    "CubeShadingMode": "Standard",
+    "RequiresAlphaBlending": false,
+    "BlockParticleSetId": "Stone",
+    "RandomRotation": "YawStep1",
+    "CustomModelScale": 0.4,
+    "HitboxType": "LegBox"
+  },
+  "PlayerAnimationsId": "Block",
+  "Categories": [
+    "Rustborn.RustBorn"
+  ],
+  "Quality": "Common"
+}

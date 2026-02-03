@@ -1,0 +1,8 @@
+items.Robot_Core.name=Rustborn's Core
+items.Bench_Machine.name=Machine Bench
+items.Bench_Machine.description=A workbench for assembling robots and repairing robot parts
+benchCategories.machine.assemble=Assemble
+benchCategories.machine.repair=Repair
+general.qualities.Machine=Machine
+ui.itemcategory.rustborn=Rustborn
+npcRoles.Rustborn.name=Rustborn

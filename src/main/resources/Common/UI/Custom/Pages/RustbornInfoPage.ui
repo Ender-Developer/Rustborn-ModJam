@@ -1,0 +1,177 @@
+$C = "../Common.ui";
+
+$C.@PageOverlay {}
+
+$C.@DecoratedContainer {
+  Anchor: (Width: 600, Height: 420);
+
+  #Title {
+    Group {
+      $C.@Title {
+        @Text = "Rustborn Information";
+      }
+    }
+  }
+
+  #Content {
+
+    Group {
+      LayoutMode: TopScrolling;
+
+      Group {
+        LayoutMode: Left;
+        Padding: (Bottom: 5);
+        FlexWeight: 1;
+
+
+        Label {
+          FlexWeight: 1;
+          Text: "Durability:";
+          Style: (RenderBold: true, FontSize: 18);
+        }
+
+        Label #DurabilityValue {
+          Text: "0%";
+          Style: (RenderBold: true);
+        }
+      }
+      Group {
+        LayoutMode: Left;
+        Padding: (Bottom: 5);
+        FlexWeight: 1;
+
+
+        Label {
+          FlexWeight: 1;
+          Text: "Damage:";
+          Style: (RenderBold: true, FontSize: 18);
+        }
+
+        Label #DamageValue {
+          Text: "0";
+          Style: (RenderBold: true);
+        }
+      }
+
+      Group {
+        LayoutMode: Left;
+        Padding: (Bottom: 5);
+        FlexWeight: 1;
+
+        Label {
+          FlexWeight: 1;
+          Text: "Remaining Repair:";
+          Style: (RenderBold: true, FontSize: 18);
+        }
+
+        Label #RepairValue {
+          Text: "0";
+          Style: (RenderBold: true);
+        }
+      }
+
+      Group { Anchor: (Height: 12); }
+      $C.@PanelSeparatorFancy {}
+      Group { Anchor: (Height: 12); }
+
+      Group {
+        LayoutMode: Left;
+        Padding: (Bottom: 5);
+        FlexWeight: 1;
+
+        Label {
+          FlexWeight: 1;
+          Text: "Head:";
+          Style: (RenderBold: true, FontSize: 18);
+        }
+
+        Label #HeadValue {
+          Text: "empty";
+          Style: (RenderBold: true);
+        }
+      }
+      Group { Anchor: (Height: 4); }
+
+      Group {
+        LayoutMode: Left;
+        Padding: (Bottom: 5);
+        FlexWeight: 1;
+
+        Label {
+          FlexWeight: 1;
+          Text: "Body:";
+          Style: (RenderBold: true, FontSize: 18);
+        }
+
+        Label #BodyValue {
+          Text: "empty";
+          Style: (RenderBold: true);
+        }
+      }
+      Group { Anchor: (Height: 4); }
+
+      Group {
+        LayoutMode: Left;
+        Padding: (Bottom: 5);
+        FlexWeight: 1;
+
+        Label {
+          FlexWeight: 1;
+          Text: "Arms:";
+          Style: (RenderBold: true, FontSize: 18);
+        }
+
+        Label #ArmValue {
+          Text: "empty";
+          Style: (RenderBold: true);
+        }
+      }
+      Group { Anchor: (Height: 4); }
+
+      Group {
+        LayoutMode: Left;
+        Padding: (Bottom: 5);
+        FlexWeight: 1;
+
+        Label {
+          FlexWeight: 1;
+          Text: "Legs:";
+          Style: (RenderBold: true, FontSize: 18);
+        }
+
+        Label #LegValue {
+          Text: "empty";
+          Style: (RenderBold: true);
+        }
+      }
+
+    }
+  }
+
+  Group { Anchor: (Height: 12); }
+
+  Group {
+    LayoutMode: Bottom;
+    Padding: (Vertical: 14);
+
+    Group {
+      LayoutMode: Left;
+      Anchor: (Top: 10);
+      Padding: (Horizontal: 10);
+
+      $C.@CancelTextButton #Close {
+        Text: "Close";
+        FlexWeight: 1;
+      }
+
+      Group { Anchor: (Width: 10); }
+
+      $C.@TextButton #RepairButton {
+        Text: "Repair";
+        FlexWeight: 1;
+      }
+    }
+  }
+}
+
+$C.@BackButton {}

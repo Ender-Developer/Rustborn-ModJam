@@ -1,0 +1,24 @@
+{
+  "Type": "Variant",
+  "Reference": "Robot_Template",
+  "Modify": {
+    "MaxHealth": 74,
+    "HearingRange": 8,
+    "ViewSector": 270,
+    "Appearance": "Robot",
+    "Weapons": [],
+    "OffHand": [],
+    "DefaultOffHandSlot": 0,
+    "FlockArray": [
+      "Risen_Robot"
+    ],
+    "Attack": "Root_NPC_Robot_Attack",
+    "AttackDistance": 3,
+    "DesiredAttackDistanceRange": [
+      2,
+      2.5
+    ],
+    "ApplySeparation": true,
+    "NameTranslationKey": "server.npcRoles.Rustborn.name"
+  }
+}
