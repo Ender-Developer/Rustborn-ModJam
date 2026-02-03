@@ -46,6 +46,8 @@ All mod crafts are made at the Machine Bench.
 
 ## 📦 Installation
 
+⚠️ If the world does not start after performing this process, start the world without the mod enabled, then after entering for the first time, exit the world, change the worldgen field, and enable the mod, then enter the mod again.
+
 1.  Download the latest release of `Rustborn`.
 2.  Place the mod files into your Hytale server or client `mods` folder
 3.  Create a world and enter it once to generate the files.
